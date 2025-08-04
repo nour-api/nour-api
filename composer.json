@@ -1,0 +1,17 @@
+{
+    "name": "nour-api/nour-api",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NourApi\\NourApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ajmal Alkhaledi",
+            "email": "ajmalalkhaledi@gmail.com"
+        }
+    ],
+    "require": {}
+}
