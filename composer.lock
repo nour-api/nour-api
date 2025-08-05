@@ -2882,16 +2882,16 @@
         },
         {
             "name": "nour-api/framework",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nour-api/framework.git",
-                "reference": "f1871cbf99d8bc64a28a02ac489da5b6d9ddd447"
+                "reference": "cf93acd04f24662c99870b876279874698e5162a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nour-api/framework/zipball/f1871cbf99d8bc64a28a02ac489da5b6d9ddd447",
-                "reference": "f1871cbf99d8bc64a28a02ac489da5b6d9ddd447",
+                "url": "https://api.github.com/repos/nour-api/framework/zipball/cf93acd04f24662c99870b876279874698e5162a",
+                "reference": "cf93acd04f24662c99870b876279874698e5162a",
                 "shasum": ""
             },
             "require": {
@@ -2935,7 +2935,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.6",
-                "phpunit/phpunit": "^12.3"
+                "phpunit/phpunit": "^11.0"
             },
             "type": "library",
             "autoload": {
@@ -2963,9 +2963,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nour-api/framework/issues",
-                "source": "https://github.com/nour-api/framework/tree/v2.1.0"
+                "source": "https://github.com/nour-api/framework/tree/v2.1.1"
             },
-            "time": "2025-08-05T00:27:34+00:00"
+            "time": "2025-08-05T21:06:31+00:00"
         },
         {
             "name": "nunomaduro/termwind",
