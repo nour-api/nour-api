@@ -4,3 +4,7 @@ Homestead.json
 Homestead.yaml
 .env
 .phpunit.result.cache
+
+/composer.local.json
+/composer.local.lock
+/.phpunit.cache/

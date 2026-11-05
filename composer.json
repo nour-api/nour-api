@@ -1,7 +1,10 @@
 {
     "name": "nour-api/nour-api",
     "description": "The Nour-API Framework.",
-    "keywords": ["framework", "nour-api"],
+    "keywords": [
+        "framework",
+        "nour-api"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -11,7 +14,7 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.4",
-        "phpunit/phpunit": "^11.0"
+        "phpunit/phpunit": "^11.5 || ^12.3"
     },
     "autoload": {
         "psr-4": {
@@ -28,14 +31,17 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
+        ],
+        "test": "phpunit"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2.0"
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true
 }
-
