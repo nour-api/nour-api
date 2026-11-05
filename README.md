@@ -33,3 +33,21 @@ Direct Composer installation copies `.env.example` but does not generate an encr
 Register routes in `routes/web.php`, providers/middleware in `bootstrap/app.php`, and custom commands in `app/Console/Kernel.php`. Optional Eloquent and facades are enabled in bootstrap. The sample authentication provider prefers bearer tokens and retains legacy `api_token` input; implement hashed, expiring tokens and your own schema before production use.
 
 For a coordinated local kernel checkout, configure a Composer path repository in a private manifest; do not commit local filesystem paths. The sibling installer `tests/integration.php` exercises local skeleton/framework integration automatically. The maintained reference is `../docs/guide/index.html` in the five-repository workspace. Review the kernel's `UPGRADE.md` before adopting its unpublished changes.
+
+## Development integration CI
+
+The development workflow checks out this application and `nour-api/framework` from `dev`, then runs the application tests and Artisan on PHP 8.2–8.5. A CI-only Composer path repository selects the checked-out kernel; an explicit check rejects a published package or a different checkout. The framework commit is recorded in the run log.
+
+To reproduce this with sibling local checkouts:
+
+```sh
+php .github/scripts/framework-checkout.php prepare ../framework
+COMPOSER=composer.ci.json composer install --no-interaction --prefer-dist --no-plugins --no-scripts
+php .github/scripts/framework-checkout.php verify ../framework
+COMPOSER=composer.ci.json composer --no-plugins test -- --fail-on-risky --fail-on-warning
+php artisan list --raw
+```
+
+The generated `composer.ci.json` and `composer.ci.lock` are ignored. The release `composer.json` and `composer.lock` stay unchanged. The `2.1.1` path-package alias satisfies the existing `^2.1` constraint only for this development check; it does not create a release.
+
+Runs start on pushes to `dev` and pull requests, with a manual dispatch trigger also declared. A framework-only push does not automatically trigger this repository: rerun the integration workflow after coordinated framework changes. Each result covers the application and framework commits checked out by that run.
