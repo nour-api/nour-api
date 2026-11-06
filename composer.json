@@ -9,7 +9,7 @@
     "type": "project",
     "require": {
         "php": "^8.2",
-        "nour-api/framework": "^2.1"
+        "nour-api/framework": "^2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

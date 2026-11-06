@@ -55,3 +55,5 @@ Runs start on pushes to `dev` and pull requests, with a manual dispatch trigger 
 ## Release publication
 
 Stable `v*` tags run the release verification workflow before a GitHub Release is created. Package discovery through Packagist depends on its configured repository integration; publication is verified against the registry before dependent package releases are advanced. No API keys are stored in the repository.
+
+If registry indexing is delayed, clone the application tag `v2.2.0` from GitHub and run `composer install`. The production lock references framework `v2.2.0` directly; no local path repository is present. Wait for registry indexing before using `composer update`.

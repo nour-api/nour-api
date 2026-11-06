@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77b1e987524f1d7aa28fc5e96c65bcd9",
+    "content-hash": "6e82b62661599f4c8f3e0cef8271600e",
     "packages": [
         {
             "name": "brick/math",
@@ -2969,16 +2969,16 @@
         },
         {
             "name": "nour-api/framework",
-            "version": "v2.1.1",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nour-api/framework.git",
-                "reference": "cf93acd04f24662c99870b876279874698e5162a"
+                "reference": "b6cec81e1f0f46a39c2f696589d1ee53a0aadead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nour-api/framework/zipball/cf93acd04f24662c99870b876279874698e5162a",
-                "reference": "cf93acd04f24662c99870b876279874698e5162a",
+                "url": "https://api.github.com/repos/nour-api/framework/zipball/b6cec81e1f0f46a39c2f696589d1ee53a0aadead",
+                "reference": "b6cec81e1f0f46a39c2f696589d1ee53a0aadead",
                 "shasum": ""
             },
             "require": {
@@ -3022,18 +3022,27 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.6",
-                "phpunit/phpunit": "^11.0"
+                "phpunit/phpunit": "^11.5 || ^12.3"
+            },
+            "suggest": {
+                "illuminate/redis": "Redis cache and queue connections (^12.21).",
+                "nyholm/psr7": "Optional PSR-7 request and response objects (^1.8).",
+                "symfony/psr-http-message-bridge": "Optional PSR-7 request and response conversion (^7.3)."
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
                 "psr-4": {
                     "NourApi\\Framework\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -3049,10 +3058,10 @@
                 "nour-api"
             ],
             "support": {
-                "issues": "https://github.com/nour-api/framework/issues",
-                "source": "https://github.com/nour-api/framework/tree/v2.1.1"
+                "source": "https://github.com/nour-api/framework/tree/v2.2.0",
+                "issues": "https://github.com/nour-api/framework/issues"
             },
-            "time": "2025-08-05T21:06:31+00:00"
+            "time": "2026-11-06T01:31:05+00:00"
         },
         {
             "name": "nunomaduro/termwind",
