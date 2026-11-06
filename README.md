@@ -32,7 +32,7 @@ Direct Composer installation copies `.env.example` but does not generate an encr
 
 Register routes in `routes/web.php`, providers/middleware in `bootstrap/app.php`, and custom commands in `app/Console/Kernel.php`. Optional Eloquent and facades are enabled in bootstrap. The sample authentication provider prefers bearer tokens and retains legacy `api_token` input; implement hashed, expiring tokens and your own schema before production use.
 
-For a coordinated local kernel checkout, configure a Composer path repository in a private manifest; do not commit local filesystem paths. The sibling installer `tests/integration.php` exercises local skeleton/framework integration automatically. The maintained reference is `../docs/guide/index.html` in the five-repository workspace. Review the kernel's `UPGRADE.md` before adopting its unpublished changes.
+For a coordinated local kernel checkout, configure a Composer path repository in a private manifest; do not commit local filesystem paths. The sibling installer `tests/integration.php` exercises local skeleton/framework integration automatically. The maintained reference is `../docs/guide/index.html` in the five-repository workspace. Review the kernel's `UPGRADE.md` when upgrading.
 
 ## Development integration CI
 
@@ -48,6 +48,10 @@ COMPOSER=composer.ci.json composer --no-plugins test -- --fail-on-risky --fail-o
 php artisan list --raw
 ```
 
-The generated `composer.ci.json` and `composer.ci.lock` are ignored. The release `composer.json` and `composer.lock` stay unchanged. The `2.1.1` path-package alias satisfies the existing `^2.1` constraint only for this development check; it does not create a release.
+The generated `composer.ci.json` and `composer.ci.lock` are ignored. The release `composer.json` and `composer.lock` stay unchanged. The `2.2.0` path-package alias satisfies the framework version constraint only for this development check; it does not create a release.
 
 Runs start on pushes to `dev` and pull requests, with a manual dispatch trigger also declared. A framework-only push does not automatically trigger this repository: rerun the integration workflow after coordinated framework changes. Each result covers the application and framework commits checked out by that run.
+
+## Release publication
+
+Stable `v*` tags run the release verification workflow before a GitHub Release is created. Package discovery through Packagist depends on its configured repository integration; publication is verified against the registry before dependent package releases are advanced. No API keys are stored in the repository.

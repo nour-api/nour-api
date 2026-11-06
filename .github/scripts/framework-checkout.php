@@ -20,7 +20,7 @@ try {
             'type' => 'path',
             'url' => $framework,
             'canonical' => true,
-            'options' => ['symlink' => true, 'versions' => ['nour-api/framework' => '2.1.1']],
+            'options' => ['symlink' => true, 'versions' => ['nour-api/framework' => '2.2.0']],
         ]], $manifest['repositories'] ?? []);
         $json = json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n";
         if (file_put_contents($root.'/composer.ci.json', $json) !== strlen($json)) {
