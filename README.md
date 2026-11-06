@@ -56,6 +56,8 @@ Runs start on pushes to `dev` and pull requests, with a manual dispatch trigger 
 
 Development kernels on `dev` also provide an optional async HTTP entry point: run `vendor/bin/nour-serve` from the project directory after selecting the development framework through the CI Composer overlay above. It requires CLI Swoole 6.x and isolates each request in a separate process. The existing `public/index.php`, PHP-FPM and `php -S localhost:8000 -t public` modes remain supported without Swoole. See the kernel's `ASYNC.md` for concurrent I/O, limits and unsupported streaming/native CLI HTTP APIs. These additions are not in published framework 2.2.0.
 
+The development runtime preserves binary form/header values and response data across its private process transport. Controlled shutdown cancels/reaps active request processes and removes their private upload directories, including nested/hidden files. Request termination callbacks cannot be guaranteed after cancellation; use durable queues for work requiring completion. Framework integration checks cover raw HEAD responses, keep-alive, 204/304 framing and SIGTERM with an active upload.
+
 Stable `v*` tags run the release verification workflow before a GitHub Release is created. Package discovery through Packagist depends on its configured repository integration; publication is verified against the registry before dependent package releases are advanced. No API keys are stored in the repository.
 
 If registry indexing is delayed, clone the application tag `v2.2.0` from GitHub and run `composer install`. The production lock references framework `v2.2.0` directly; no local path repository is present. Wait for registry indexing before using `composer update`.
